@@ -11,7 +11,7 @@ public class MyMedia {
         Song song3 = new Song("I don't", "West-Life", 2002);
         Song song4 = new Song("Sacrifice", "Michael Bolton", 1995);
 
-        System.out.println("Song one here"+ song1);
+        // System.out.println("Song one here"+ song1);
 
         // Add songs to the MediaLibrary
         mediaLibrary.addSong(song1);    

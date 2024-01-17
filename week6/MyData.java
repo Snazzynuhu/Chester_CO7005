@@ -22,7 +22,7 @@ public class MyData implements MinMax {
     return max;
     }
 
-    static int[] sampleArray = {1,2,4,6,8,33};
+    static int[] sampleArray = {1,2,-10,6,8,33};
     
     public static void main(String[] args) {
         System.out.println("Minimum value is: " + new MyData().min(sampleArray));
