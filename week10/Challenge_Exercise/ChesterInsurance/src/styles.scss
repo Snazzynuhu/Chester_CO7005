@@ -21,3 +21,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   // height: 10rem;
 }
 
+.close-btn{
+  background-color: red; /* Blue color */
+    color: white;
+    padding: 12px 20px; /* Increased padding for better touch interaction */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+
+    &:hover {
+      background-color: #0b7dda;
+    }
+
+}
+

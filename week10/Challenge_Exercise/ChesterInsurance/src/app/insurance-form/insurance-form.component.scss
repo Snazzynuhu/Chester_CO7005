@@ -15,8 +15,15 @@
   width: 400px;
   text-align: center;
 
+  .chester-logo{
+    max-width: 15%;
+    margin: auto;
+
+  }
+
   h2 {
     color: #333;
+    color: red;
   }
 
   div {
@@ -53,5 +60,15 @@
     &:hover {
       background-color: #0b7dda;
     }
+  }
+  .disable{
+    background-color: lightgray;
+    color: black;
+    padding: 12px 20px; /* Increased padding for better touch interaction */
+    border: none;
+    border-radius: 4px;
+    cursor: not-allowed;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
   }
 }

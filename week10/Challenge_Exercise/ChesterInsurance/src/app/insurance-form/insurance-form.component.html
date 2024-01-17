@@ -1,6 +1,7 @@
 <div class="insurance-container">
   <div class="insurance-card">
-    <h2>Insurance Form</h2>
+    <img class="chester-logo" src="../../assets/chester_logo.png" alt="">
+    <h2 class="title">Chester Insurance Form</h2>
 
     <div>
       <label for="vehicleType">Select Vehicle Type:</label>
@@ -20,6 +21,6 @@
       <input type="number" id="penaltyPoints" [(ngModel)]="penaltyPoints" />
     </div>
 
-    <button class="submit" (click)="calculatePremium()">Calculate Premium</button>
+    <button [class]="isModalOpen? 'disable': 'submit'" (click)="calculatePremium()" [disabled]="isModalOpen">Calculate Premium</button>
   </div>
 </div>

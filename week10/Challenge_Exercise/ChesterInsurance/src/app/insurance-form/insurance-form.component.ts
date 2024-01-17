@@ -14,12 +14,16 @@ export class InsuranceFormComponent {
   isUnder25: boolean = false;
   penaltyPoints!: number;
   premiumToPay!: number;
+  isModalOpen: boolean = false;
 
   constructor(public dialog: MatDialog,
     private overlayContainer: OverlayContainer) {}
 
   calculatePremium(): void {
     this.premiumToPay = 0;
+    if (this.isModalOpen) {
+      return;
+    }
 
     if (this.selectedVehicleType === 'car') {
       this.premiumToPay = 305;
@@ -47,8 +51,13 @@ export class InsuranceFormComponent {
       panelClass: 'custom-dialog-container',
     });
 
+    dialogRef.afterOpened().subscribe(() => {
+      this.isModalOpen = true;
+    });
+
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed', result);
+      window.location.reload();
       // this.overlayContainer.getContainerElement().classList.remove('overlay-container');
 
     });

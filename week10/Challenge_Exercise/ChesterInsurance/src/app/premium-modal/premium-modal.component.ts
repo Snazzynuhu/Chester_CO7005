@@ -9,7 +9,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
       <p>Total premium payable: £{{ data.premium.toFixed(2) }}</p>
     </div>
     <div mat-dialog-actions>
-      <button mat-button [mat-dialog-close]="'close'">Close</button>
+      <button class="close-btn" mat-button [mat-dialog-close]="'close'">Close</button>
     </div>
   `,
 })
