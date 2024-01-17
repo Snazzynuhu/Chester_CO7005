@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PremiumModalComponent } from '../premium-modal/premium-modal.component';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-insurance-form',
@@ -11,6 +14,9 @@ export class InsuranceFormComponent {
   isUnder25: boolean = false;
   penaltyPoints!: number;
   premiumToPay!: number;
+
+  constructor(public dialog: MatDialog,
+    private overlayContainer: OverlayContainer) {}
 
   calculatePremium(): void {
     this.premiumToPay = 0;
@@ -32,6 +38,21 @@ export class InsuranceFormComponent {
       this.premiumToPay += 100;
     }
 
-    alert(`Total premium payable: £${this.premiumToPay.toFixed(2)}`);
+    // alert(`Total premium payable: £${this.premiumToPay.toFixed(2)}`);
+    // this.overlayContainer.getContainerElement().classList.add('overlay-container');
+
+    const dialogRef = this.dialog.open(PremiumModalComponent, {
+      data: { premium: this.premiumToPay },
+      position: { top: '50%', left: '50%' },
+      panelClass: 'custom-dialog-container',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed', result);
+      // this.overlayContainer.getContainerElement().classList.remove('overlay-container');
+
+    });
   }
 }
+export { PremiumModalComponent };
+

@@ -2,3 +2,22 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.overlay-container {
+  position: fixed;
+  top: -20%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+  z-index: 1000; /* Ensure it is above everything else on the page */
+}
+.custom-dialog-container {
+  transform: translate(-50%, -1130%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  // height: 10rem;
+}
+
