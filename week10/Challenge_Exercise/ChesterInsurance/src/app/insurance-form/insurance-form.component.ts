@@ -9,7 +9,7 @@ import { OverlayContainer } from '@angular/cdk/overlay';
   styleUrls: ['./insurance-form.component.scss']
 })
 export class InsuranceFormComponent {
-  vehicleTypes = ['car', 'motorcycle'];
+  vehicleTypes = ['Car', 'Motorcycle'];
   selectedVehicleType!: string;
   isUnder25: boolean = false;
   penaltyPoints!: number;
@@ -25,12 +25,12 @@ export class InsuranceFormComponent {
       return;
     }
 
-    if (this.selectedVehicleType === 'car') {
+    if (this.selectedVehicleType === 'Car') {
       this.premiumToPay = 305;
-    } else if (this.selectedVehicleType === 'motorcycle') {
+    } else if (this.selectedVehicleType === 'Motorcycle') {
       this.premiumToPay = 360;
     } else {
-      alert('Invalid vehicle type. Please select "car" or "motorcycle".');
+      alert('No vehicle selected. Please select "car" or "motorcycle".');
       return;
     }
 
@@ -41,9 +41,6 @@ export class InsuranceFormComponent {
     if (this.penaltyPoints > 6) {
       this.premiumToPay += 100;
     }
-
-    // alert(`Total premium payable: £${this.premiumToPay.toFixed(2)}`);
-    // this.overlayContainer.getContainerElement().classList.add('overlay-container');
 
     const dialogRef = this.dialog.open(PremiumModalComponent, {
       data: { premium: this.premiumToPay },
@@ -58,8 +55,6 @@ export class InsuranceFormComponent {
     dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed', result);
       window.location.reload();
-      // this.overlayContainer.getContainerElement().classList.remove('overlay-container');
-
     });
   }
 }
